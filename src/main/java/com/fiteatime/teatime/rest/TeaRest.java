@@ -1,7 +1,7 @@
 package com.fiteatime.teatime.rest;
 
-import com.fiteatime.teatime.models.Tea;
-import com.fiteatime.teatime.dto.TeaRepository;
+import com.fiteatime.teatime.data.Tea;
+import com.fiteatime.teatime.repository.TeaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-public class TeaController {
+public class TeaRest {
 
     @Autowired
     TeaRepository teaRepository;

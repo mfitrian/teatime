@@ -1,4 +1,4 @@
-package com.fiteatime.teatime.models;
+package com.fiteatime.teatime.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -8,19 +8,32 @@ import javax.persistence.GenerationType;
 import java.util.UUID;
 
 @Entity
-@Table(name = "teas")
+@Table(name = "teatime_teas")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Tea {
 
-    public enum Type {GREEN, BLACK, OOLONG, HERBAL, WHITE};
+    public enum Type {
+        GREEN,
+        BLACK,
+        OOLONG,
+        HERBAL,
+        WHITE;
+    }
+
     @Column(length = 36)
     @org.hibernate.annotations.Type(type = "uuid-char")
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @JsonProperty("Id")
     private UUID id;
+
+    @Column
     private String name;
+
+    @Column
     private int rating;
+
+    @Column
     private Type type;
 
     public Tea () {
